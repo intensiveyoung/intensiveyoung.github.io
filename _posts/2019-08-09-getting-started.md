@@ -11,6 +11,10 @@ pin: true
 media_subpath: '/posts/20180809'
 ---
 
+ 
+ ![Alt Text](/assets/img/tropical-leaves.jpg){: .normal }
+ 
+
 ## Creating a Site Repository
 
 When creating your site repository, you have two options depending on your needs:
