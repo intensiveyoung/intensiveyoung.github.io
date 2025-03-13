@@ -11,8 +11,7 @@ pin: true
 media_subpath: '/posts/20180809'
 ---
 
- 
- ![Alt Text](tropical-leaves.jpg){: .normal }
+
  
 
 ## Creating a Site Repository
