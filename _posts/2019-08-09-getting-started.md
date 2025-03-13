@@ -12,7 +12,7 @@ media_subpath: '/posts/20180809'
 ---
 
  
- ![Alt Text](/assets/img/tropical-leaves.jpg){: .normal }
+ ![Alt Text](tropical-leaves.jpg){: .normal }
  
 
 ## Creating a Site Repository
