@@ -1,0 +1,233 @@
+---
+layout: page
+icon: fas fa-info-circle
+order: 4
+---
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+.pf-wrap { font-family: 'DM Sans', sans-serif; color: var(--text-color, #0f1117); line-height: 1.7; }
+.pf-hero { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: start; padding: 1.5rem 0 2rem; border-bottom: 1px solid var(--border-color, #e2e5ec); margin-bottom: 2rem; }
+.pf-hero-name { font-family: 'DM Serif Display', serif; font-size: 2.4rem; line-height: 1.15; margin: 0 0 0.4rem; letter-spacing: -0.02em; }
+.pf-hero-role { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #1a56db; margin: 0 0 0.75rem; font-family: 'DM Mono', monospace; }
+.pf-hero-meta { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: #6b7280; }
+.pf-hero-badge { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; }
+.pf-avail-pill { display: inline-flex; align-items: center; gap: 0.4rem; background: #d1fae5; color: #065f46; border-radius: 100px; padding: 0.35rem 0.85rem; font-size: 0.72rem; font-weight: 500; font-family: 'DM Mono', monospace; white-space: nowrap; }
+.pf-avail-dot { width: 7px; height: 7px; border-radius: 50%; background: #065f46; animation: pfpulse 2s infinite; display: inline-block; }
+@keyframes pfpulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.pf-notice { font-size: 0.72rem; color: #9ca3af; font-family: 'DM Mono', monospace; }
+
+.pf-intro { font-size: 1rem; color: #3d4252; line-height: 1.8; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border-color, #e2e5ec); }
+
+.pf-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: #e2e5ec; border: 1px solid #e2e5ec; border-radius: 12px; overflow: hidden; margin-bottom: 2rem; }
+.pf-stat { background: #fff; padding: 1.25rem 1rem; position: relative; }
+.pf-stat-bar { position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: #1a56db; border-radius: 12px 0 0 12px; }
+.pf-stat-num { font-family: 'DM Serif Display', serif; font-size: 1.8rem; line-height: 1; margin-bottom: 0.25rem; color: #0f1117; }
+.pf-stat-label { font-size: 0.72rem; color: #6b7280; line-height: 1.4; }
+
+.pf-sec { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border-color, #e2e5ec); }
+.pf-sec:last-child { border-bottom: none; padding-bottom: 0; }
+.pf-sec-label { font-family: 'DM Mono', monospace; font-size: 0.67rem; letter-spacing: 0.15em; text-transform: uppercase; color: #9ca3af; margin-bottom: 1.1rem; display: flex; align-items: center; gap: 0.75rem; }
+.pf-sec-label::after { content: ''; flex: 1; height: 1px; background: #e2e5ec; max-width: 100px; }
+
+.pf-certs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.pf-cert { border: 1px solid #e2e5ec; border-radius: 12px; padding: 1.1rem; background: #fff; display: flex; gap: 0.85rem; align-items: flex-start; position: relative; overflow: hidden; }
+.pf-cert::after { content: ''; position: absolute; top: 0; right: 0; width: 50px; height: 50px; background: #e8effe; border-radius: 0 12px 0 50px; opacity: 0.6; }
+.pf-cert-icon { width: 38px; height: 38px; border-radius: 9px; background: #e8effe; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1rem; }
+.pf-cert-name { font-weight: 500; font-size: 0.88rem; margin: 0 0 0.1rem; color: #0f1117; }
+.pf-cert-body { font-size: 0.72rem; color: #6b7280; margin: 0 0 0.35rem; font-family: 'DM Mono', monospace; }
+.pf-cert-tag { font-size: 0.67rem; font-weight: 500; padding: 0.18rem 0.55rem; border-radius: 100px; font-family: 'DM Mono', monospace; display: inline-block; }
+.pf-cert-tag.distinction { background: #fdf3d7; color: #92400e; }
+.pf-cert-tag.active { background: #d1fae5; color: #065f46; }
+
+.pf-grp { margin-bottom: 1rem; }
+.pf-grp-name { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: #9ca3af; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.pf-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.pf-tag { font-family: 'DM Mono', monospace; font-size: 0.7rem; padding: 0.22rem 0.6rem; background: #f6f7f9; color: #3d4252; border: 1px solid #e2e5ec; border-radius: 5px; }
+.pf-tag.hi { background: #e8effe; color: #1a56db; border-color: transparent; }
+
+.pf-projs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.pf-proj { border: 1px solid #e2e5ec; border-radius: 12px; padding: 1.1rem; background: #fff; display: flex; flex-direction: column; gap: 0.5rem; transition: border-color 0.2s; }
+.pf-proj:hover { border-color: #1a56db; }
+.pf-proj.feat { border-color: #1a56db; grid-column: span 2; display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start; }
+.pf-proj-status { font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 500; padding: 0.18rem 0.6rem; border-radius: 100px; display: inline-block; margin-bottom: 0.15rem; }
+.pf-proj-status.act { background: #e8effe; color: #1a56db; }
+.pf-proj-status.sn { background: #f6f7f9; color: #9ca3af; }
+.pf-proj-name { font-weight: 500; font-size: 0.9rem; margin: 0; color: #0f1117; }
+.pf-proj-desc { font-size: 0.78rem; color: #6b7280; margin: 0; line-height: 1.55; }
+.pf-proj-pills { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.pf-proj-pill { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: #6b7280; background: #f6f7f9; border: 1px solid #e2e5ec; border-radius: 4px; padding: 0.12rem 0.45rem; }
+.pf-feat-r { display: flex; flex-direction: column; gap: 0.3rem; min-width: 130px; align-items: flex-end; }
+.pf-feat-item { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: #6b7280; display: flex; align-items: center; gap: 0.35rem; }
+.pf-feat-arrow { color: #1a56db; font-size: 0.55rem; }
+
+.pf-avail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+.pf-avail-card { background: #f6f7f9; border: 1px solid #e2e5ec; border-radius: 10px; padding: 0.85rem 1rem; display: flex; align-items: center; gap: 0.65rem; font-size: 0.82rem; color: #3d4252; }
+.pf-chips { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1rem; }
+.pf-chip { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: #6b7280; background: #f6f7f9; border: 1px solid #e2e5ec; border-radius: 8px; padding: 0.35rem 0.75rem; }
+
+@media (max-width: 600px) {
+  .pf-hero { grid-template-columns: 1fr; }
+  .pf-hero-badge { align-items: flex-start; }
+  .pf-stats { grid-template-columns: repeat(2,1fr); }
+  .pf-certs { grid-template-columns: 1fr; }
+  .pf-projs { grid-template-columns: 1fr; }
+  .pf-proj.feat { grid-column: span 1; grid-template-columns: 1fr; }
+  .pf-avail-grid { grid-template-columns: 1fr; }
+  .pf-hero-name { font-size: 2rem; }
+}
+</style>
+
+<div class="pf-wrap">
+
+  <div class="pf-hero">
+    <div>
+      <div class="pf-hero-name">James Mwangi Maina</div>
+      <div class="pf-hero-role">QA Engineer &middot; Network Specialist &middot; IT Auditor</div>
+      <div class="pf-hero-meta">
+        <span>&#128205; Nairobi, Kenya</span>
+        <span>&#127760; Open to US &middot; EU &middot; Global Remote</span>
+        <span>&#9203; 1 month notice</span>
+      </div>
+    </div>
+    <div class="pf-hero-badge">
+      <div class="pf-avail-pill"><span class="pf-avail-dot"></span>Open to work</div>
+      <div class="pf-notice">EAT &middot; UTC+3</div>
+    </div>
+  </div>
+
+  <div class="pf-intro">
+    I build and break software for a living. As a QA Engineer at a <strong>US-based SaaS company</strong>, I work across the full testing lifecycle - from manual exploratory sessions to automated Playwright suites in CI pipelines. My background spans <strong>network infrastructure, cybersecurity, and IT audit</strong>, meaning I approach quality from a systems perspective, not just a test-case checklist.
+    <br><br>
+    Over <strong>90 Fiverr projects delivered across 12 countries</strong> taught me to communicate technical findings to non-technical stakeholders, manage async remote work, and ship on deadline, consistently.
+  </div>
+
+  <div class="pf-stats">
+    <div class="pf-stat"><div class="pf-stat-bar"></div><div class="pf-stat-num">90+</div><div class="pf-stat-label">Client projects<br>across 12 countries</div></div>
+    <div class="pf-stat"><div class="pf-stat-bar"></div><div class="pf-stat-num">5&#8211;8</div><div class="pf-stat-label">Bugs caught<br>per sprint</div></div>
+    <div class="pf-stat"><div class="pf-stat-bar"></div><div class="pf-stat-num">3k+</div><div class="pf-stat-label">Device campus<br>network designed</div></div>
+    <div class="pf-stat"><div class="pf-stat-bar"></div><div class="pf-stat-num">&#9733; 5.0</div><div class="pf-stat-label">Fiverr rating<br>all projects</div></div>
+  </div>
+
+  <div class="pf-sec">
+    <div class="pf-sec-label">Credentials</div>
+    <div class="pf-certs">
+      <div class="pf-cert">
+        <div class="pf-cert-icon">&#128737;&#65039;</div>
+        <div>
+          <p class="pf-cert-name">Certified Information Systems Auditor</p>
+          <p class="pf-cert-body">ISACA &middot; CISA</p>
+          <span class="pf-cert-tag distinction">Distinction</span>
+        </div>
+      </div>
+      <div class="pf-cert">
+        <div class="pf-cert-icon">&#127760;</div>
+        <div>
+          <p class="pf-cert-name">Cisco Certified Network Associate</p>
+          <p class="pf-cert-body">Cisco &middot; CCNA</p>
+          <span class="pf-cert-tag active">Active</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pf-sec">
+    <div class="pf-sec-label">Technical Stack</div>
+    <div class="pf-grp">
+      <div class="pf-grp-name">Testing &amp; QA</div>
+      <div class="pf-tags">
+        <span class="pf-tag hi">Playwright</span><span class="pf-tag hi">TypeScript</span><span class="pf-tag hi">k6</span><span class="pf-tag hi">OWASP ZAP</span><span class="pf-tag hi">axe-core</span><span class="pf-tag">Selenium</span><span class="pf-tag">Cypress</span><span class="pf-tag">Jira</span><span class="pf-tag">GitHub Actions</span><span class="pf-tag">Postman</span>
+      </div>
+    </div>
+    <div class="pf-grp">
+      <div class="pf-grp-name">Networking</div>
+      <div class="pf-tags">
+        <span class="pf-tag">Cisco IOS</span><span class="pf-tag">VLANs</span><span class="pf-tag">OSPF</span><span class="pf-tag">STP</span><span class="pf-tag">Structured Cabling</span><span class="pf-tag">Packet Tracer</span><span class="pf-tag">Network Design</span>
+      </div>
+    </div>
+    <div class="pf-grp">
+      <div class="pf-grp-name">Security &amp; Audit</div>
+      <div class="pf-tags">
+        <span class="pf-tag">ITGC</span><span class="pf-tag">COBIT</span><span class="pf-tag">CVSS</span><span class="pf-tag">Vulnerability Assessment</span><span class="pf-tag">DVWA</span><span class="pf-tag">Nmap</span><span class="pf-tag">Burp Suite</span>
+      </div>
+    </div>
+    <div class="pf-grp">
+      <div class="pf-grp-name">Tooling</div>
+      <div class="pf-tags">
+        <span class="pf-tag">Git</span><span class="pf-tag">GitHub</span><span class="pf-tag">Docker</span><span class="pf-tag">Linux</span><span class="pf-tag">REST APIs</span><span class="pf-tag">VS Code</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="pf-sec">
+    <div class="pf-sec-label">Portfolio Projects</div>
+    <div class="pf-projs">
+
+      <div class="pf-proj feat">
+        <div>
+          <p class="pf-proj-name">All-Rounded QA Capstone</p>
+          <p class="pf-proj-desc">Full-spectrum test automation targeting OrangeHRM. Covers UI E2E, API testing, performance load/stress/soak, security baseline scanning, accessibility, and CI pipelines with artifact uploads.</p>
+          <div class="pf-proj-pills" style="margin-top:0.5rem">
+            <span class="pf-proj-pill">Playwright</span><span class="pf-proj-pill">TypeScript</span><span class="pf-proj-pill">k6</span><span class="pf-proj-pill">OWASP ZAP</span><span class="pf-proj-pill">axe-core</span><span class="pf-proj-pill">GitHub Actions</span>
+          </div>
+        </div>
+        <div class="pf-feat-r">
+          <span class="pf-proj-status act">In progress</span>
+          <div class="pf-feat-item"><span class="pf-feat-arrow">&#9658;</span> UI E2E automation</div>
+          <div class="pf-feat-item"><span class="pf-feat-arrow">&#9658;</span> API testing</div>
+          <div class="pf-feat-item"><span class="pf-feat-arrow">&#9658;</span> Load &amp; stress</div>
+          <div class="pf-feat-item"><span class="pf-feat-arrow">&#9658;</span> Security scanning</div>
+          <div class="pf-feat-item"><span class="pf-feat-arrow">&#9658;</span> Accessibility</div>
+          <div class="pf-feat-item"><span class="pf-feat-arrow">&#9658;</span> CI/CD pipelines</div>
+        </div>
+      </div>
+
+      <div class="pf-proj">
+        <span class="pf-proj-status sn">Coming soon</span>
+        <p class="pf-proj-name">Vulnerability Assessment Report</p>
+        <p class="pf-proj-desc">Client-style pentest report against DVWA/Metasploitable with CVSS scores, business impact context, and remediation steps.</p>
+        <div class="pf-proj-pills"><span class="pf-proj-pill">Nmap</span><span class="pf-proj-pill">DVWA</span><span class="pf-proj-pill">CVSS</span><span class="pf-proj-pill">PDF Report</span></div>
+      </div>
+
+      <div class="pf-proj">
+        <span class="pf-proj-status sn">Coming soon</span>
+        <p class="pf-proj-name">Network Design Case Study</p>
+        <p class="pf-proj-desc">Retrospective of a real 4-building university campus network: 6+ floors, 3,000+ devices, topology decisions and VLAN design.</p>
+        <div class="pf-proj-pills"><span class="pf-proj-pill">Cisco</span><span class="pf-proj-pill">VLANs</span><span class="pf-proj-pill">OSPF</span><span class="pf-proj-pill">Case Study</span></div>
+      </div>
+
+      <div class="pf-proj">
+        <span class="pf-proj-status sn">Coming soon</span>
+        <p class="pf-proj-name">IT Audit Simulation</p>
+        <p class="pf-proj-desc">Simulated ITGC audit on a fictional organisation using ISACA methodology - access controls, change management, and backup/recovery.</p>
+        <div class="pf-proj-pills"><span class="pf-proj-pill">ITGC</span><span class="pf-proj-pill">COBIT</span><span class="pf-proj-pill">ISACA</span><span class="pf-proj-pill">Risk Matrix</span></div>
+      </div>
+
+      <div class="pf-proj">
+        <span class="pf-proj-status sn">Coming soon</span>
+        <p class="pf-proj-name">Craig Reynolds Boid Algorithm</p>
+        <p class="pf-proj-desc">Implementation of the classic flocking simulation: separation, alignment, cohesion. Demonstrates algorithmic thinking and creative coding range.</p>
+        <div class="pf-proj-pills"><span class="pf-proj-pill">Simulation</span><span class="pf-proj-pill">Algorithms</span><span class="pf-proj-pill">Creative Coding</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="pf-sec">
+    <div class="pf-sec-label">Availability</div>
+    <div class="pf-avail-grid">
+      <div class="pf-avail-card">&#129514; QA Engineering (manual, automation, or mixed)</div>
+      <div class="pf-avail-card">&#128203; IT Audit &amp; IS Audit</div>
+      <div class="pf-avail-card">&#128268; Network Engineering &amp; Administration</div>
+      <div class="pf-avail-card">&#128272; Security Analysis &amp; Compliance</div>
+    </div>
+    <div class="pf-chips">
+      <span class="pf-chip">&#128205; Nairobi, Kenya</span>
+      <span class="pf-chip">&#128336; UTC+3 (EAT)</span>
+      <span class="pf-chip">&#9203; 1 month notice</span>
+      <span class="pf-chip">&#127757; US &middot; EU &middot; Global remote</span>
+    </div>
+  </div>
+
+</div>
